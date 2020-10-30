@@ -49,8 +49,9 @@ jobs:
           exit 1
 
       - name: Lint check
-        uses: golangci/golangci-lint-action
+        uses: golangci/golangci-lint-action@v2
         with:
+          version: v1.29
           working-directory: odfe-cli
 
       - name: Run Test
