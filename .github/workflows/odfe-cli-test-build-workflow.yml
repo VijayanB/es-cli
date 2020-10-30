@@ -80,6 +80,7 @@ jobs:
         env:
           GOPROXY: "https://proxy.golang.org"
         run: |
+          cd odfe-cli
           go test ./...
 
       - name: Build for ${{ matrix.platform }}-${{ matrix.go-version }}
