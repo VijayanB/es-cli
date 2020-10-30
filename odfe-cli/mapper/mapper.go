@@ -45,8 +45,8 @@ func Int32PtrToInt32(r *int32) int32 {
 }
 
 // StringToStringPtr maps a string to a *string.
-func StringToStringPtr(r string) *string {
-	return &r
+func StringToStringPtr(k string) *string {
+	return &k
 }
 
 // StringPtrToString maps a *string to a string,
