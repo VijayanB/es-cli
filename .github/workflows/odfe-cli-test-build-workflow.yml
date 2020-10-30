@@ -79,7 +79,7 @@ jobs:
       - name: Run Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: go test ./... -cover
+        run:  go test ./handler/...
 
       - name: Build for ${{ matrix.platform }}-${{ matrix.go-version }}
         env:
