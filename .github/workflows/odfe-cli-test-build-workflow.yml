@@ -14,7 +14,11 @@ jobs:
     defaults:
       run:
         working-directory: odfe-cli
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+        go-version: [1.14]
+    runs-on: ${{ matrix.platform }}
     steps:
       - name: Set up Go ubuntu-latest
         uses: actions/setup-go@v2
