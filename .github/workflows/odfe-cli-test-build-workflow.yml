@@ -51,12 +51,6 @@ jobs:
           version: v1.29
           working-directory: odfe-cli
 
-      - name: Run Test
-        env:
-          GOPROXY: "https://proxy.golang.org"
-        run: |
-          go test ./...
-
       - name: Run coverage
         env:
           GOPROXY: "https://proxy.golang.org"
@@ -70,7 +64,7 @@ jobs:
         working-directory: odfe-cli
     strategy:
       matrix:
-        platform: [ ubuntu-latest, macos-latest, windows-latest ]
+        platform: [ windows-latest ]
         go-version: [ 1.14 ]
     runs-on: ${{ matrix.platform }}
     steps:
