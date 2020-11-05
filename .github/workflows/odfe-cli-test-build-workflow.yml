@@ -50,20 +50,17 @@ jobs:
           working-directory: odfe-cli
 
       - name: Run Unit Tests
-        env:
-          GOPROXY: "https://proxy.golang.org"
         run: |
+          echo "https://proxy.golang.org" >> GOPROXY
           go test ./...  -coverprofile=coverage.out
           go tool cover -func=coverage.out
 
       - name: Run Docker Image
         run: |
           make docker.start.components
-          sleep 90
+          sleep 60
 
       - name: Run Integration Tests
-        env:
-          GOPROXY: "https://proxy.golang.org"
         run: make test.integration
 
       - name: Upload coverage to Codecov
@@ -93,6 +90,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Build for ${{ matrix.platform }}-${{ matrix.go-version }}
-        env:
-          GOPROXY: "https://proxy.golang.org"
-        run: go build .
+        run: |
+          echo "https://proxy.golang.org" >> GOPROXY
+          go build .
