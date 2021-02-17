@@ -3,11 +3,11 @@ on:
   push:
     branches:
       - main
-      - opendistro-*
+      - odfe-cli-*
   pull_request:
     branches:
       - main
-      - opendistro-*
+      - odfe-cli-*
 
 jobs:
   test:
